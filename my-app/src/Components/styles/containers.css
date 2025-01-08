@@ -1,16 +1,59 @@
-.homepageContainer{
-    background-color: blue;
+.homepageContainer {
+    background-color: #eeeeee;
     margin: 2%;
-    border-radius:14px;
-    padding:2%;
-    height: 75vh;
-    display: flex;
-    
-    gap: 2%;
+    border-radius: 16px;
+    padding: 2%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.homepageContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .productCard {
-    background-color: green;
+    background-color: #ffffff;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: "Poppins", sans-serif;
+    color: #333333;
+}
 
-    
+.productCard.selected {
+    position:absolute;
+    top:10%;
+    left:0;
+    width: 92%;
+    height: 75%;
+}
+
+.productCard:hover {
+   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    cursor:pointer;
+}
+
+.mealIcon {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    color: #ff6f61;
+}
+
+.mealName {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #444444;
 }
