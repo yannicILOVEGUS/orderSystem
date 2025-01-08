@@ -38,30 +38,30 @@
 }
 
 .productCard.fadeInOut {
-    animation: fadeInOut 0.8s ease-in-out forwards; /* Increased duration for smooth glide */
-    position: absolute;
+    animation: fadeInOut 0.8s ease-in-out forwards;
+    position: fixed; 
+    z-index: 10;
+    width: 30vw;
+    height: 30vh;
 }
 
 @keyframes fadeInOut {
     0% {
-        opacity: 0;
-        top: 0%; /* Initial position */
-        left: 0%; /* Adjust to start relative to parent */
-        transform: translate(-50%, -50%) scale(1); /* Keep original size */
+        transform: translate(var(--start-x), var(--start-y)) ; 
+        width: 30vw;
+        height: 30vh;
     }
     50% {
-        opacity: 1;
-        top: 50%; /* Move to the center vertically */
-        left: 50%; /* Move to the center horizontally */
-        transform: translate(-50%, -50%) scale(1); /* Still original size */
+
+        transform: translate(calc(50vw - 55%), calc(50vh - 50%)) ;
     }
     100% {
-        opacity: 1;
-        top: 50%; /* Remain in center */
-        left: 50%; /* Remain in center */
-        transform: translate(-50%, -50%) scale(1.2); /* Scale up */
+   
+        transform: translate(calc(50vw - 55%), calc(50vh - 50%)) ;
     }
 }
+
+
 
 
 .mealIcon {

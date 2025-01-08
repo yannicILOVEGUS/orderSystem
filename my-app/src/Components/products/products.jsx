@@ -4,6 +4,7 @@ import '../styles/containers.css';
 
 const Products = () => {
   const [animatingId, setAnimatingId] = useState(null);
+  const [animationStyles, setAnimationStyles] = useState({});
 
   const meals = [
     { id: 1, name: "Cheeseburger", icon: "🍔" },
@@ -18,21 +19,28 @@ const Products = () => {
     { id: 10, name: "Pasta Bowl", icon: "🍝" },
   ];
 
-  const handleCardClick = (id) => {
+  const handleCardClick = (id, event) => {
     if (animatingId === id) {
       setAnimatingId(null); // Reset animation state
+      setAnimationStyles({});
     } else {
+      const rect = event.currentTarget.getBoundingClientRect(); // Get card's position
+      setAnimationStyles({
+        '--start-x': `${rect.left}px`,
+        '--start-y': `${rect.top}px`,
+      });
       setAnimatingId(id); // Start animation for clicked card
     }
   };
 
   return (
-    <div className="homepageContainer">
+    <div className="homepageContainer" style={{ position: "relative" }}>
       {meals.map((meal) => (
-        <div className="test" key={meal.id}>
+        <div key={meal.id}>
           <div
             className={`productCard ${animatingId === meal.id ? "fadeInOut" : ""}`}
-            onClick={() => handleCardClick(meal.id)}
+            style={animatingId === meal.id ? animationStyles : {}}
+            onClick={(event) => handleCardClick(meal.id, event)}
           >
             <div className="mealIcon">{meal.icon}</div>
             <div className="mealName">{meal.name}</div>
