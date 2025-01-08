@@ -3,7 +3,7 @@ import './products.css';
 import '../styles/containers.css';
 
 const Products = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [animatingId, setAnimatingId] = useState(null);
 
   const meals = [
     { id: 1, name: "Cheeseburger", icon: "🍔" },
@@ -19,19 +19,24 @@ const Products = () => {
   ];
 
   const handleCardClick = (id) => {
-    setSelectedId(selectedId === id ? null : id);
+    if (animatingId === id) {
+      setAnimatingId(null); // Reset animation state
+    } else {
+      setAnimatingId(id); // Start animation for clicked card
+    }
   };
 
   return (
     <div className="homepageContainer">
       {meals.map((meal) => (
-        <div
-          key={meal.id}
-          className={`productCard ${selectedId === meal.id ? "selected" : ""}`}
-          onClick={() => handleCardClick(meal.id)}
-        >
-          <div className="mealIcon">{meal.icon}</div>
-          <div className="mealName">{meal.name}</div>
+        <div className="test" key={meal.id}>
+          <div
+            className={`productCard ${animatingId === meal.id ? "fadeInOut" : ""}`}
+            onClick={() => handleCardClick(meal.id)}
+          >
+            <div className="mealIcon">{meal.icon}</div>
+            <div className="mealName">{meal.name}</div>
+          </div>
         </div>
       ))}
     </div>

@@ -27,24 +27,42 @@
     align-items: center;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 3s ease, box-shadow 0.2s ease;
     font-family: "Poppins", sans-serif;
     color: #333333;
 }
 
-.productCard.selected {
-    position:absolute;
-    top:10%;
-    left:0;
-    width: 92%;
-    height: 75%;
-}
-
-.productCard:hover {
-   
+.productCard:hover { 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     cursor:pointer;
 }
+
+.productCard.fadeInOut {
+    animation: fadeInOut 0.8s ease-in-out forwards; /* Increased duration for smooth glide */
+    position: absolute;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        top: 0%; /* Initial position */
+        left: 0%; /* Adjust to start relative to parent */
+        transform: translate(-50%, -50%) scale(1); /* Keep original size */
+    }
+    50% {
+        opacity: 1;
+        top: 50%; /* Move to the center vertically */
+        left: 50%; /* Move to the center horizontally */
+        transform: translate(-50%, -50%) scale(1); /* Still original size */
+    }
+    100% {
+        opacity: 1;
+        top: 50%; /* Remain in center */
+        left: 50%; /* Remain in center */
+        transform: translate(-50%, -50%) scale(1.2); /* Scale up */
+    }
+}
+
 
 .mealIcon {
     font-size: 2.8rem;
