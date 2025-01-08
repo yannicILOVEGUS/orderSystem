@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Header from './Components/Header/Header'
+import Header from './Components/Header/Header.jsx'
 
 function App() {
   return(

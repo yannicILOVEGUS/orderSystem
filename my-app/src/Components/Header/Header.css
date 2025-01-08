@@ -1,3 +1,25 @@
-.header{
-    background-color: black;
+.header {
+    display: flex;
+    height: 100px;         
 }
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Elemente nach links ausrichten */
+    padding: 10px;
+}
+
+.logo-container img {
+    width: 100px; /* Größe des Logos */
+    height: auto;
+}
+  @media (min-width: 768px) {
+    .logo {
+      max-width: 300px; /* Begrenze die Breite auf größeren Bildschirmen */
+    }
+  }
+  .category-container {
+    width: 100%;           /* Nimmt die komplette Breite des Headers */
+    background-color: #ddd; /* Optional: Farbe für Sichtbarkeit */
+    height: 100px;          /* Höhe des Containers (kann angepasst werden) */
+  }
