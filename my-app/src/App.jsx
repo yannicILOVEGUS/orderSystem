@@ -6,18 +6,15 @@ import Footer from './Components/Footer/Footer'
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Funktion, um die ausgewählte Kategorie zu setzen
   const handleCategorySelect = (categoryId) => {
-    setSelectedCategory(categoryId); // Setzt die ausgewählte Kategorie
+    setSelectedCategory(categoryId); 
   };
 
   return (
     <div>
-      {/* Header-Komponente mit den Kategorien und der Auswahlfunktion */}
       <Header onCategorySelect={handleCategorySelect} />
-      
-      {/* Products-Komponente mit den gefilterten Produkten basierend auf der ausgewählten Kategorie */}
       <Products selectedCategory={selectedCategory} />
+      <Footer/>
     </div>
   );
 };
