@@ -1,4 +1,16 @@
 .homepageContainer{
     background-color: blue;
+    margin: 2%;
+    border-radius:14px;
+    padding:2%;
+    height: 80vh;
+    display: flex;
+    
+    gap: 2%;
+}
+
+.productCard {
+    background-color: green;
+
     
 }

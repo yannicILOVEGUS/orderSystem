@@ -5,7 +5,12 @@ import '../styles/containers.css'
 const products = () => {
     return(
        <div className="homepageContainer">
-            <h1>TEST</h1>
+            <div className = "productCard">                
+            </div>
+            <div className = "productCard">                
+            </div>
+            <div className = "productCard">                
+            </div>
        </div>
     )
 }
