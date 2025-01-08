@@ -1,35 +1,30 @@
-import React, { useState } from "react";
+import React from 'react';
 import './products.css';
 import '../styles/containers.css';
 
-const Products = () => {
-  const [selectedId, setSelectedId] = useState(null);
-
+const Products = ({ selectedCategory }) => {
   const meals = [
-    { id: 1, name: "Cheeseburger", icon: "🍔" },
-    { id: 2, name: "Grilled Chicken", icon: "🍗" },
-    { id: 3, name: "Fried Fish", icon: "🐟" },
-    { id: 4, name: "Caesar Salad", icon: "🥗" },
-    { id: 5, name: "French Fries", icon: "🍟" },
-    { id: 6, name: "Ice Cream", icon: "🍦" },
-    { id: 7, name: "Milkshake", icon: "🥤" },
-    { id: 8, name: "Pizza Slice", icon: "🍕" },
-    { id: 9, name: "Tacos", icon: "🌮" },
-    { id: 10, name: "Pasta Bowl", icon: "🍝" },
+    { id: 1, name: "Cheeseburger", icon: "🍔", categoryId: 1 },
+    { id: 2, name: "Grilled Chicken", icon: "🍗", categoryId: 2 },
+    { id: 3, name: "Fried Fish", icon: "🐟", categoryId: 3 },
+    { id: 4, name: "Caesar Salad", icon: "🥗", categoryId: 4 },
+    { id: 5, name: "French Fries", icon: "🍟", categoryId: 5 },
+    { id: 6, name: "Ice Cream", icon: "🍦", categoryId: 6 },
+    { id: 7, name: "Milkshake", icon: "🥤", categoryId: 7 },
+    { id: 8, name: "Pizza Slice", icon: "🍕", categoryId: 1 },
+    { id: 9, name: "Tacos", icon: "🌮", categoryId: 2 },
+    { id: 10, name: "Pasta Bowl", icon: "🍝", categoryId: 4 }
   ];
 
-  const handleCardClick = (id) => {
-    setSelectedId(selectedId === id ? null : id);
-  };
+  
+  const filteredMeals = selectedCategory
+    ? meals.filter(meal => meal.categoryId === selectedCategory)
+    : meals;
 
   return (
     <div className="homepageContainer">
-      {meals.map((meal) => (
-        <div
-          key={meal.id}
-          className={`productCard ${selectedId === meal.id ? "selected" : ""}`}
-          onClick={() => handleCardClick(meal.id)}
-        >
+      {filteredMeals.map((meal) => (
+        <div key={meal.id} className="productCard">
           <div className="mealIcon">{meal.icon}</div>
           <div className="mealName">{meal.name}</div>
         </div>
@@ -39,3 +34,4 @@ const Products = () => {
 };
 
 export default Products;
+
