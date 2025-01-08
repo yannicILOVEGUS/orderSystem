@@ -19,9 +19,7 @@ const Header = () => {
         </div>  
         <div className="category-container">
         {categories.map((category) => (
-          <div key={category.id} className="category-item">
-            <button>{category.icon}{category.name}</button>
-          </div>
+        <button key={category.id} className="category-item">{category.icon}{category.name}</button>
         ))}
       </div>
        </header>
