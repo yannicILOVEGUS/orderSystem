@@ -1,0 +1,38 @@
+/* Warenkorb.css */
+.warenkorb {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  
+  .gesamtpreis {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
