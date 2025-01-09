@@ -159,7 +159,6 @@ const Products = ({selectedCategory}) => {
         if (animatingId === meal.id && !isFadingOut) {
           cardClass += " fadeIn";
         }
-
         return (
           <div id={`productCardOrigin-${meal.id}`} key={meal.id}>
             <div
@@ -174,7 +173,7 @@ const Products = ({selectedCategory}) => {
               )}
                 <div className="mealIcon">{meal.icon}</div>
                 <div className="mealName">{meal.name}</div>           
-                <button className="addToCartBtn" onClick={() => hinzufuegen(meal)}>Add to cart</button>            
+                <button className="addToCartBtn" onClick={(e) => {e.stopPropagation();  hinzufuegen(meal); }}> Add to cart</button>           
             </div>
           </div>
         );
