@@ -1,0 +1,80 @@
+/* Footer Container */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Damit der Footer über anderen Inhalten bleibt */
+  }
+  
+  /* Links Button (falls verwendet) */
+  .left-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .left-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Rechter Button (Open Cart) */
+  .right-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .right-button:hover {
+    background-color: #007bb5;
+  }
+  
+  /* Warenkorb Container */
+  .warenkorbContainer {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Zuerst außerhalb des Bildschirms */
+    width: 300px;
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    transition: transform 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999; /* Direkt über dem Footer, aber unter dem Warenkorb */
+  }
+  
+  /* Wenn der Warenkorb angezeigt werden soll */
+  .warenkorbContainer.open {
+    transform: translateX(-100%); /* Schiebt den Warenkorb von rechts nach links */
+  }
+  
+  /* Styling für den Footer insgesamt */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  

@@ -12,14 +12,17 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <button className="left-button">Links</button>
+      <button className="left-button" onClick={toggleNewDiv}>Links</button>
       
-      <button className="right-button" onClick={toggleNewDiv}>Rechts</button> {/* Rechter Button */}
+      <button className="right-button" onClick={toggleNewDiv}>Open Cart</button> {/* Rechter Button */}
 
       {/* Wenn showNewDiv true ist, wird die neue Komponente angezeigt */}
-      {showNewDiv && <Cart />} 
+      <div className={`warenkorbContainer ${showNewDiv ? 'open' : ''}`}>
+        <Cart />
+      </div>
     </footer>
   );
 };
 
 export default Footer;
+

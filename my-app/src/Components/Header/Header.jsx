@@ -10,8 +10,9 @@ const Header = ({ onCategorySelect }) => {
     { id: 5, name: "Fries", icon: "🍟" },
     { id: 6, name: "Desserts", icon: "🍦" },
     { id: 7, name: "Drinks", icon: "🥤" },
-    { id: 8, name: "Happy Meal", icon: "🎉" },
+    { id: 8, name: "Happy Meal", icon: "🎉" }
   ];
+  
 
   return (
     <header className="header">
