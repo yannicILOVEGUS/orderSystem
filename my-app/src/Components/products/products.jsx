@@ -154,7 +154,7 @@ const Products = ({selectedCategory}) => {
   
   return (
     <div className="homepageContainer" style={{ position: "relative" }}>
-      {meals.map((meal) => {
+      {filteredMeals.map((meal) => {
         let cardClass = "productCard";
         if (animatingId === meal.id && !isFadingOut) {
           cardClass += " fadeIn";
