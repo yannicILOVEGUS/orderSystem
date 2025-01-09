@@ -1,6 +1,7 @@
 import React from 'react';
 import './Cart.css';
 import { useCart } from '../Context/CartStoreContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { warenkorb, entfernen, leeren, gesamtPreis } = useCart(); // Verwende den Cart Context
@@ -30,6 +31,9 @@ const Cart = () => {
           <button onClick={leeren} className="clearCartButton">Warenkorb leeren</button>
         </div>
       )}
+      <Link to="/checkout">
+        <button>Zum Checkout</button>
+      </Link>
     </div>
   );
 };
