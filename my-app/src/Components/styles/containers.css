@@ -30,48 +30,136 @@
     transition: transform 3s ease, box-shadow 0.2s ease;
     font-family: "Poppins", sans-serif;
     color: #333333;
+    position: relative;
 }
 
 .productCard:hover { 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.productCard.fadeInOut {
-    animation: fadeInOut 0.8s ease-in-out forwards;
+.productCard.fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
     position: fixed; 
     z-index: 10;
-    width: 30vw;
-    height: 30vh;
+    width: 330vw;
+    height: 330vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
 }
 
-@keyframes fadeInOut {
+@keyframes fadeIn {
     0% {
-        transform: translate(var(--start-x), var(--start-y)) ; 
+        transform: translate(0, 0) scale(1);
         width: 30vw;
-        height: 30vh;
+        height: 30vh;   
     }
     50% {
-
-        transform: translate(calc(50vw - 55%), calc(50vh - 50%)) ;
+        transform: translate(var(--start-x), var(--start-y));
     }
     100% {
-   
-        transform: translate(calc(50vw - 55%), calc(50vh - 50%)) ;
+        width: 60%;
+        height: 60%;
+        transform: translate(var(--start-x), var(--start-y));
+        overflow: hidden;
     }
 }
 
-
-
+@keyframes fadeOut {
+    0% {
+        aspect-ratio: 3 / 4;
+        z-index: 10;
+        width: 330vw;
+        height: 330vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transform: translate(var(--start-x), var(--start-y));
+        width: 60%;
+        height: 60%;
+        position: fixed;
+    
+    }
+    50% {
+        width: var(--dest-width);
+        height: var(--dest-height);
+        position: fixed;
+    }
+    100% {
+        position: fixed;
+        width: var(--dest-width);
+        height: var(--dest-height);
+        transform: translate(var(0), var(0));
+    }
+  }
+  
+  .productCard.fadeOut {
+    animation: fadeOut 0.5s ease-in-out forwards;
+  }
+  
+  
+  
 
 .mealIcon {
-    font-size: 2.8rem;
+    width: 80%;
+    height: 80%;
     margin-bottom: 12px;
-    color: #ff6f61;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(220%);
+}
+
+.mealIcon.selected{
+    font-size: 4rem;
+    margin-bottom: 12px;
 }
 
 .mealName {
     font-weight: 500;
     font-size: 1.2rem;
     color: #444444;
+}
+
+.addToCartBtn {
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.5s ease; 
+}
+
+.productCard.fadeIn .addToCartBtn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+
+.backBtn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border: none;
+    font-size: 2rem;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    width: 4rem;
+    height: 4rem;
 }
