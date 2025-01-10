@@ -22,7 +22,6 @@ const Products = ({selectedCategory}) => {
     { id: 7, name: "Milkshake", image: '/assetsmeal_display_images//milkshake.png', categoryId: 7, preis: 5.49 },
   ];
   
-
   const filteredMeals = selectedCategory
     ? meals.filter(meal => meal.categoryId === selectedCategory)
     : meals;
