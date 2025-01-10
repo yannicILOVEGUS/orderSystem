@@ -1,24 +1,30 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header/Header'
 import Products from './Components/products/products'
 import Footer from './Components/Footer/Footer'
+import { CartProvider } from './Components/Context/CartStoreContext';
+import Checkout from './Components/Checkout/Checkout';
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Funktion, um die ausgewählte Kategorie zu setzen
   const handleCategorySelect = (categoryId) => {
-    setSelectedCategory(categoryId); // Setzt die ausgewählte Kategorie
+    setSelectedCategory(categoryId); 
   };
-
+ 
   return (
-    <div>
-      {/* Header-Komponente mit den Kategorien und der Auswahlfunktion */}
-      <Header onCategorySelect={handleCategorySelect} />
-      
-      {/* Products-Komponente mit den gefilterten Produkten basierend auf der ausgewählten Kategorie */}
-      <Products selectedCategory={selectedCategory} />
-    </div>
+    <CartProvider>
+    <Router>
+      <div>
+        <Header onCategorySelect={handleCategorySelect} />
+        <Routes>
+          <Route path="/" element={<><Products selectedCategory={selectedCategory} /><Footer /></>} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </div>
+    </Router>
+  </CartProvider>
   );
 };
 
