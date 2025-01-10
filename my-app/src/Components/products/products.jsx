@@ -63,7 +63,6 @@ const Products = ({selectedCategory}) => {
     { id: 50, name: "Veggie Burger", icon: "🍔", categoryId: 1, preis: 5.99 }
   ];
   
-
   const filteredMeals = selectedCategory
     ? meals.filter(meal => meal.categoryId === selectedCategory)
     : meals;

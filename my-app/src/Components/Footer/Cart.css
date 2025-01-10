@@ -15,7 +15,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 25%;
+  width: 30%;
+  min-width: 20%;
   height: 100vh;
   background-color: rgb(94, 85, 85);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
@@ -44,7 +45,7 @@
 
 /* Wenn der Warenkorb leer ist */
 .warenkorbItems p {
-  font-size: 18px;
+  font-size: 10px;
   color: #ddd;
   text-align: center;
 }
@@ -81,7 +82,7 @@
 
 /* Name des Produkts */
 .itemName {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   color: #f2f2f2;
 }
