@@ -6,11 +6,11 @@ import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Products = ({selectedCategory}) => {
-  const  {hinzufuegen}  = useCart();
+  const { hinzufuegen } = useCart();
   const [animatingId, setAnimatingId] = useState(null);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const cardRefs = useRef({});
-  const originCoords = useRef({}); 
+  const originCoords = useRef({});
 
   const meals = [
     { id: 1, name: "Cheeseburger", image: '/assets/meal_display_images/cheeseburger.png', categoryId: 1, preis: 5.99 },
@@ -21,15 +21,18 @@ const Products = ({selectedCategory}) => {
     { id: 6, name: "Ice Cream", image: '/assets/meal_display_images/icecream.png', categoryId: 6, preis: 3.99 },
     { id: 7, name: "Milkshake", image: '/assetsmeal_display_images//milkshake.png', categoryId: 7, preis: 5.49 },
   ];
-  
+
   const filteredMeals = selectedCategory
     ? meals.filter(meal => meal.categoryId === selectedCategory)
     : meals;
 
     const handleCardClick = (id) => {
-        const cardElement = cardRefs.current[id];
-        if (animatingId === id || isFadingOut) return;
+        if (animatingId !== null) {
+          handleBackClick();
+          return;
+        }
       
+        const cardElement = cardRefs.current[id];
         if (cardElement) {
           const imageElement = cardElement.querySelector('.mealImage');
           if (imageElement) {
@@ -67,32 +70,36 @@ const Products = ({selectedCategory}) => {
         setIsFadingOut(false);
       };
       
-
-      const handleBackClick = () => {
+      const handleBackClick = (callback = null) => {
         if (animatingId) {
           const cardElement = cardRefs.current[animatingId];
           const imageElement = cardElement.querySelector('.mealImage');
           const checklistElement = cardElement.querySelector('#checklist');
-          const backBtn = cardElement.querySelector('.backbBtn');
-
+          const backBtn = cardElement.querySelector('.backBtn');
+      
           if (imageElement) {
             imageElement.classList.remove('selected');
             imageElement.classList.add('deselected');
-            
           }
-          if (backBtn) {
-            backBtn.classList.add('disappear');
-          }
-
+      
           if (checklistElement) {
             checklistElement.classList.add('disappear');
-            
-            const onAnimationEnd = () => {
+            const onChecklistAnimationEnd = () => {
               checklistElement.classList.remove('disappear');
-              checklistElement.style.display = 'none'; // Hide after animation
-              checklistElement.removeEventListener('animationend', onAnimationEnd);
+              checklistElement.style.display = 'none';
+              checklistElement.removeEventListener('animationend', onChecklistAnimationEnd);
             };
-            checklistElement.addEventListener('animationend', onAnimationEnd);
+            checklistElement.addEventListener('animationend', onChecklistAnimationEnd);
+          }
+      
+          if (backBtn) {
+            backBtn.classList.add('disappear');
+            const onBackBtnAnimationEnd = () => {
+              backBtn.classList.remove('disappear');
+              backBtn.style.display = 'none';
+              backBtn.removeEventListener('animationend', onBackBtnAnimationEnd);
+            };
+            backBtn.addEventListener('animationend', onBackBtnAnimationEnd);
           }
       
           const originData = originCoords.current[animatingId];
@@ -132,14 +139,18 @@ const Products = ({selectedCategory}) => {
       
             setAnimatingId(null);
             setIsFadingOut(false);
+      
+            if (callback) {
+              callback();
+            }
           };
-          
+      
           cardElement.addEventListener("animationend", onFadeOutEnd);
-          backBtn.classList.add('disappear');
         }
       };
       
-  
+
+
   return (
     <div className="homepageContainer" style={{ position: "relative" }}>
       {filteredMeals.map((meal) => {
@@ -148,50 +159,49 @@ const Products = ({selectedCategory}) => {
           cardClass += " fadeIn";
         }
         return (
-            <div id={`productCardOrigin-${meal.id}`} key={meal.id}>
-              <div
-                ref={(el) => (cardRefs.current[meal.id] = el)}
-                className={cardClass}
-                onClick={() => handleCardClick(meal.id)}
-              >
-                {animatingId === meal.id && !isFadingOut && (
-                  <button className="backBtn" onClick={handleBackClick}>
-                    <ArrowBackIcon />
-                  </button>
-                )}
-                <div>
-                  <img src={meal.image} alt={meal.name} className="mealImage" />
-                  <div className="mealName">{meal.name}</div>
-                </div>
-                {animatingId === meal.id && !isFadingOut && (
-                  
-                    <div id="checklist">
-                      <input value="1" name="r" type="checkbox" id="01" />
-                      <label htmlFor="01">Small</label>
-                      <input value="2" name="r" type="checkbox" id="02" />
-                      <label htmlFor="02">Medium</label>
-                      <input value="3" name="r" type="checkbox" id="03" />
-                      <label htmlFor="03">Large</label>
-                    </div>     
-                         
-                )}
-                <Button
-                  variant="outlined"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    hinzufuegen(meal);
-                  }}
-                >
-                  Add to cart
-                </Button>
+          <div id={`productCardOrigin-${meal.id}`} key={meal.id}>
+            <div
+              ref={(el) => (cardRefs.current[meal.id] = el)}
+              className={cardClass}
+              onClick={() => handleCardClick(meal.id)}
+            >
+              {animatingId === meal.id && !isFadingOut && (
+                <button className="backBtn" onClick={(e) => {
+                  e.stopPropagation();
+                  handleBackClick();
+                }}>
+                  <ArrowBackIcon />
+                </button>
+              )}
+              <div>
+                <img src={meal.image} alt={meal.name} className="mealImage" />
+                <div className="mealName">{meal.name}</div>
               </div>
+              {animatingId === meal.id && !isFadingOut && (
+                <div id="checklist">
+                  <input value="1" name="r" type="checkbox" id="01" />
+                  <label htmlFor="01">Small</label>
+                  <input value="2" name="r" type="checkbox" id="02" />
+                  <label htmlFor="02">Medium</label>
+                  <input value="3" name="r" type="checkbox" id="03" />
+                  <label htmlFor="03">Large</label>
+                </div>
+              )}
+              <Button
+                variant="outlined"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  hinzufuegen(meal);
+                }}
+              >
+                Add to cart
+              </Button>
             </div>
-          );
-          
+          </div>
+        );
       })}
     </div>
   );
 };
 
 export default Products;
-
