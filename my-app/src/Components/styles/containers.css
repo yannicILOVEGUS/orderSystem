@@ -98,6 +98,7 @@
     
     }
     50% {
+              
         width: var(--dest-width);
         height: var(--dest-height);
         position: fixed;
@@ -198,6 +199,7 @@
 
 .addToCartBtn:hover{
     background-color: #d93628;
+    width: 90%;
 }
 .productCard.fadeIn .addToCartBtn {
     padding: 0.75rem 1.5rem;
