@@ -4,7 +4,7 @@ import { useCart } from '../Context/CartStoreContext';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { warenkorb, entfernen, leeren, gesamtPreis } = useCart(); // Verwende den Cart Context
+  const { warenkorb, entfernen, leeren, gesamtPreis,hinzufuegen,minusProdukt } = useCart(); // Verwende den Cart Context
   return (
     <div className="warenkorbContent">
       <h2>Warenkorb</h2>
@@ -12,27 +12,32 @@ const Cart = () => {
         {warenkorb.length === 0 ? (
           <p>Dein Warenkorb ist leer.</p>
         ) : (
-          
           warenkorb.map((item) => (
             <div key={item.id} className="warenkorbItem">
-              <div className="itemDetails">
-                <div className="itemIcon">{item.icon}</div>
-                <div className="itemName">{item.name}</div>
-                <div className="itemPrice">{item.preis}€ x {item.menge}</div>
-              </div>
-              <button onClick={() => entfernen(item.id)} className="removeButton">Entfernen</button>
+             <div className='itemDetails'>
+                <div className="itemInfo">
+                    <div className="itemIcon">{item.icon}</div>
+                    <div className="itemName">{item.name}</div>
+                    <div className="itemPrice">{item.preis}€</div>
+                </div>
+                <div className='itemControll'>
+                    <button className='minusButton' aria-label="Menge reduzieren" onClick={() => minusProdukt(item.id)}><img  src="/paymentIcon/minus.png" ></img></button>
+                    <span>{item.menge}</span>
+                    <button className='addProdukt' aria-label="Menge erhöhen" onClick={() => hinzufuegen(item)}><img  src="/paymentIcon/plus.png" ></img></button>
+                </div>
+            </div>
             </div>
           ))
         )}
-      </div>
-      {warenkorb.length > 0 && (
+        {warenkorb.length > 0 && (
         <div className="warenkorbTotal">
-          <div className="totalPrice">Gesamt: {gesamtPreis.toFixed(2)}€</div>
           <button onClick={leeren} className="clearCartButton">Warenkorb leeren</button>
         </div>
       )}
+      </div>
+      <div className="totalPrice">Total: {gesamtPreis.toFixed(2)}€</div>
       <Link to="/checkout">
-        <button>Zum Checkout</button>
+      <button className="checkoutButton">Proceed to Checkout</button>
       </Link>
     </div>
   );

@@ -3,7 +3,7 @@
     margin: 2%;
     border-radius: 16px;
     padding: 2%;
-    height: 80vh;
+    height: 90vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;

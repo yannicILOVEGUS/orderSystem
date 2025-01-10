@@ -19,7 +19,7 @@ const App = () => {
             <CartProvider>
           <PaymentProvider>
             <div>
-              <Header onCategorySelect={handleCategorySelect} />
+            <Header onCategorySelect={handleCategorySelect} />
               <Routes>
                 <Route path="/" element={<><Products selectedCategory={selectedCategory} /><Footer /></>} />
                 <Route path="/checkout" element={<Checkout />} />
