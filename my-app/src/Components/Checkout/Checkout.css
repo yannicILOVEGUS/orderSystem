@@ -1,0 +1,54 @@
+.checkOutContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9; /* Sehr helles Grau für den Hintergrund */
+  }
+  
+  .checkOutInfoCard {
+    background-color: #ffffff; /* Weiß als Hauptfarbe */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+  }
+  
+  .checkOutInfoCard h2 {
+    color: #000000; /* Schwarze Schrift */
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .paymentOptions button {
+    background-color: #ffffff; 
+    color: #000000; 
+    border: 2px solid #cccccc; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .paymentOptions button:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  button {
+    background-color: #000000;
+    color: #ffffff; 
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #444444;
+  }

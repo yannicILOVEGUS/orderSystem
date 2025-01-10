@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { warenkorb, entfernen, leeren, gesamtPreis } = useCart(); // Verwende den Cart Context
-
   return (
     <div className="warenkorbContent">
       <h2>Warenkorb</h2>
@@ -13,6 +12,7 @@ const Cart = () => {
         {warenkorb.length === 0 ? (
           <p>Dein Warenkorb ist leer.</p>
         ) : (
+          
           warenkorb.map((item) => (
             <div key={item.id} className="warenkorbItem">
               <div className="itemDetails">
