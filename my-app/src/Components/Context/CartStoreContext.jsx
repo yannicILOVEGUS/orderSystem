@@ -24,6 +24,22 @@ export const CartProvider = ({ children }) => {
     setCart(prevState => prevState.filter(item => item.id !== id));
   };
 
+  const minusProdukt = (id) => {
+    setCart((prevState) => {  
+      const existierendesProdukt = prevState.find(item => item.id === id);
+
+      if (existierendesProdukt && existierendesProdukt.menge > 1) {
+        return prevState.map(item =>
+          item.id === id
+            ? { ...item, menge: item.menge - 1 }
+            : item
+        );
+      }
+      return prevState.filter(item => item.id !== id);
+    });
+  };
+  
+
   const leeren = () => {
     setCart([]);
   };
@@ -32,7 +48,7 @@ export const CartProvider = ({ children }) => {
   const gesamtPreis = warenkorb.reduce((acc, item) => acc + item.preis * item.menge, 0);
 
   return (
-    <CartContext.Provider value={{ warenkorb, hinzufuegen, entfernen, leeren, gesamtPreis }}>
+    <CartContext.Provider value={{ warenkorb, hinzufuegen, entfernen, leeren,minusProdukt, gesamtPreis }}>
       {children}
     </CartContext.Provider>
   );
