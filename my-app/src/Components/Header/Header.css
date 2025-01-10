@@ -27,6 +27,7 @@
     justify-content: space-around;
     padding: 0 10px;  
     overflow-y: hidden;
+    scrollbar-width: none;
   }
   .category-item {
     margin: 10px;

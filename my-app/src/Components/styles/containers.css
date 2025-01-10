@@ -11,6 +11,7 @@
     overflow-x: hidden;
     scrollbar-width: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
 }
 
 .homepageContainer::-webkit-scrollbar {
@@ -23,22 +24,26 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; 
     align-items: center;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 3s ease, box-shadow 0.2s ease;
+    transition: transform 3s ease, box-shadow 0.3s ease;
     font-family: "Poppins", sans-serif;
     color: #333333;
     position: relative;
+    padding: 20px;
+    overflow: hidden;
 }
 
+
 .productCard:hover { 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 11px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
 .productCard.fadeIn {
+    justify-content: space-between; 
     animation: fadeIn 0.5s ease-in-out forwards;
     position: fixed; 
     z-index: 10;
@@ -47,9 +52,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
-    justify-content: flex-start;
+    
     align-items: center;
     padding-top: 2rem;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes fadeIn {
@@ -66,19 +72,20 @@
         height: 60%;
         transform: translate(var(--start-x), var(--start-y));
         overflow: hidden;
+        padding: 40px;
     }
 }
 
 @keyframes fadeOut {
     0% {
+        padding: 40px;
         aspect-ratio: 3 / 4;
         z-index: 10;
         width: 330vw;
         height: 330vh;
-        overflow-y: auto;
-        overflow-x: hidden;
+       
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         padding-top: 2rem;
         transform: translate(var(--start-x), var(--start-y));
@@ -91,42 +98,83 @@
         width: var(--dest-width);
         height: var(--dest-height);
         position: fixed;
+        
     }
     100% {
         position: fixed;
         width: var(--dest-width);
         height: var(--dest-height);
         transform: translate(var(0), var(0));
+      
     }
   }
   
   .productCard.fadeOut {
     animation: fadeOut 0.5s ease-in-out forwards;
+  } 
+
+  .mealImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    
   }
-  
-  
-  
 
-  .mealIcon {
-    font-size: 4rem; 
-    margin-bottom: 0; 
-    color: #ff6f61;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; 
-    height: 100%; 
+.mealImage.selected{
+    animation: decreaseSize 0.5s ease-in-out forwards;
+}
+.mealImage.deselected{
+    animation: increaseSize 0.5s ease-in-out forwards;
 }
 
-.mealIcon.selected{
-    font-size: 4rem;
-    margin-bottom: 12px;
-}
+@keyframes decreaseSize {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 50%;
+        
+    }
+  }
+  @keyframes increaseSize {
+    0% {
+        width: 50%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+        
+    }
+  }
 
-.mealName {
+  @keyframes disappear {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(0);
+        opacity: 0;
+        display: none;
+        
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        display: none;
+        
+    }
+  }
+
+  .mealName {
     font-weight: 500;
     font-size: 1.2rem;
     color: #444444;
+    margin-top: 0.5rem; 
+    text-align: center; 
 }
 
 .addToCartBtn {
@@ -139,7 +187,8 @@
     cursor: pointer;
     margin-top: auto;
     margin-bottom: 1rem;
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
+    align-self: center; 
 }
 
 .productCard.fadeIn .addToCartBtn {
@@ -148,6 +197,7 @@
     cursor: pointer;
     margin-top: auto;
     margin-bottom: 1rem;
+
 }
 
 
@@ -161,6 +211,11 @@
     cursor: pointer;
     background-color: #eeeeee;
     border-radius: 8px;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
 }
+.backBtn.disappear {
+    animation: disappear 0.5s ease-in-out forwards;
+}
+
+
