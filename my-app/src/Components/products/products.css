@@ -1,5 +1,82 @@
-
+.radioCard {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 16px 24px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .radioCardTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 1rem;
+  }
+  
+  .radioGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .radioOption {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .radioOption input[type="radio"] {
+    display: none;
+  }
+  
+  .radioOption label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f8f8f8;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .radioOption label:hover {
+    background-color: #eeeeee;
+    border-color: #cccccc;
+  }
+  
+  .radioOption input[type="radio"]:checked + label {
+    background-color: #ff6f61;
+    color: #ffffff;
+    border-color: #d93628;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .radioCard {
+      padding: 12px 16px;
+      max-width: 90%;
+    }
+  
+    .radioOption label {
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+  }
+  
 
   #checklist.disappear {
     animation: disappear 0.5s ease-in-out forwards;
   }
+
+
+  

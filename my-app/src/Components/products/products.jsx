@@ -19,7 +19,9 @@ const Products = ({selectedCategory}) => {
     { id: 4, name: "Caesar Salad", image: '/assets/meal_display_images/caesar_salad.png', categoryId: 4, preis: 4.99 },
     { id: 5, name: "French Fries", image: '/assets/meal_display_images/french_fries.png', categoryId: 5, preis: 2.99 },
     { id: 6, name: "Ice Cream", image: '/assets/meal_display_images/icecream.png', categoryId: 6, preis: 3.99 },
-    { id: 7, name: "Milkshake", image: '/assetsmeal_display_images//milkshake.png', categoryId: 7, preis: 5.49 },
+    { id: 7, name: "Milkshake", image: '/assets/meal_display_images/milkshake.png', categoryId: 7, preis: 5.49 },
+    { id: 8, name: "Ritter Sport Bigmac", image: '/assets/meal_display_images/ritter_bigmac.jpg', categoryId: 1, preis: 7.00 },
+    { id: 9, name: "Ritter Sport Döner", image: '/assets/meal_display_images/ritter-doener.jpg', categoryId: 1, preis: 7.00 },
   ];
 
   const filteredMeals = selectedCategory
@@ -178,15 +180,46 @@ const Products = ({selectedCategory}) => {
                 <div className="mealName">{meal.name}</div>
               </div>
               {animatingId === meal.id && !isFadingOut && (
-                <div id="checklist">
-                  <input value="1" name="r" type="checkbox" id="01" />
-                  <label htmlFor="01">Small</label>
-                  <input value="2" name="r" type="checkbox" id="02" />
-                  <label htmlFor="02">Medium</label>
-                  <input value="3" name="r" type="checkbox" id="03" />
-                  <label htmlFor="03">Large</label>
+                <div id="checklist" className="radioCard">
+                    <h3 className="radioCardTitle">Choose a size</h3>
+                    <div className="radioGroup">
+                    <div className="radioOption">
+                        <input
+                        value="1"
+                        name={`size-${meal.id}`}
+                        type="radio"
+                        id={`small-${meal.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        />
+                        <label htmlFor={`small-${meal.id}`}>Small</label>
+                    </div>
+                    <div className="radioOption">
+                        <input
+                        value="2"
+                        name={`size-${meal.id}`}
+                        type="radio"
+                        id={`medium-${meal.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        />
+                        <label htmlFor={`medium-${meal.id}`}>Medium</label>
+                    </div>
+                    <div className="radioOption">
+                        <input
+                        value="3"
+                        name={`size-${meal.id}`}
+                        type="radio"
+                        id={`large-${meal.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        />
+                        <label htmlFor={`large-${meal.id}`}>Large</label>
+                    </div>
+                    </div>
                 </div>
-              )}
+                )}
+
+
+
+
               <Button
                 variant="outlined"
                 onClick={(e) => {
