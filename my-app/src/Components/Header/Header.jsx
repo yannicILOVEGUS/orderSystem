@@ -14,7 +14,7 @@ const Header = ({ onResetCategory }) => {
       </div>
 
       <div className="logo-container">
-        <img src="/assets/Logo.jpg" alt="logo" className="logo" />
+        <img src="/assets/Logo.png" alt="logo" className="logo" />
       </div>
     </header>
   );
