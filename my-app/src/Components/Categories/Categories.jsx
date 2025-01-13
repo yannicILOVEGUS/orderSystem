@@ -3,7 +3,7 @@ import '../styles/containers.css';
 
 const Categories = ({ onCategorySelect }) => {
   const categoriesItems = [
-    { id: 1, name: "Burgers", image:'/assets/CatecoryImg/Burger.png'},
+    { id: 1, name: "Burger", image:'/assets/CatecoryImg/Burger.png'},
     { id: 2, name: "Chicken", image:'/assets/CatecoryImg/chicken.png'},
     { id: 3, name: "Fish", image:'/assets/CatecoryImg/Lachs.png' },
     { id: 4, name: "Salads", image:'/assets/CatecoryImg/salat-chicken.png' },
