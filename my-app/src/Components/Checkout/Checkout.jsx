@@ -71,7 +71,7 @@ import { usePayment } from '../Context/PaymentContext';
           </Button>
           <Button
             variant="outlined"
-            onClick={() => handlePaymentMethod("PayPal")}
+            onClick={() => handleCheckout()}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -101,7 +101,7 @@ import { usePayment } from '../Context/PaymentContext';
           </Button>
           <Button
             variant="outlined"
-            onClick={() => handlePaymentMethod("Barzahlung")}
+            onClick={() => handleCheckout()}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -131,7 +131,7 @@ import { usePayment } from '../Context/PaymentContext';
           </Button>
           <Button
             variant="outlined"
-            onClick={() => handlePaymentMethod("Barzahlung")}
+            onClick={() => handleCheckout()}
             sx={{
               display: "flex",
               alignItems: "center",

@@ -1,18 +1,23 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './Header.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Header = ({ onResetCategory }) => {
+  const location = useLocation();
+  const hiddenPaths = ['/checkout', '/order-summary'];
+  const shouldHideButton = hiddenPaths.includes(location.pathname);
+
   return (
     <header className="header">
-
       <div className="header-actions">
-        <button className="reset-button" onClick={onResetCategory}>
-          <ArrowBackIcon className="arrow-icon" />
-          Back to Categories
-        </button>
+        {!shouldHideButton && (
+          <button className="reset-button" onClick={onResetCategory}>
+            <ArrowBackIcon className="arrow-icon" />
+            Back to Categories
+          </button>
+        )}
       </div>
-
       <div className="logo-container">
         <img src="/assets/Logo.png" alt="logo" className="logo" />
       </div>

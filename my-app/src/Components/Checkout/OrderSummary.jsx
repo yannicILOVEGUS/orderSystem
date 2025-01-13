@@ -14,11 +14,11 @@ const OrderSummary = () => {
       <ul className='itemList'>
         {warenkorb && warenkorb.map((item, index) => (
           <li key={index} className='item'>
-            <span>{item.name}</span> <span>{item.menge}</span> <span>{item.preis * item.menge} €</span>
+            <span>{item.name}</span> <span>{item.menge}</span> <span>{(item.preis * item.menge).toFixed(2)} €</span>
           </li>
         ))}
       </ul>
-      <p className='totalPrice'>Total Price: <span className='highlight'>{gesamtPreis} €</span></p>
+      <p className='totalPrice'>Total Price: <span className='highlight'>{(gesamtPreis).toFixed(2)} €</span></p>
       <Link to="/">
         <button className='backButton'>Back to Homepage</button>
       </Link>

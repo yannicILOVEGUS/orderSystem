@@ -18,7 +18,7 @@ const Cart = () => {
                 <div className="itemInfo">
                     <div className="itemIcon">{item.icon}</div>
                     <div className="itemName">{item.name}</div>
-                    <div className="itemPrice">{item.preis}€</div>
+                    <div className="itemPrice">{(item.preis * item.menge).toFixed(2)}€</div>
                 </div>
                 <div className='itemControll'>
                     <button className='minusButton' aria-label="Menge reduzieren" onClick={() => minusProdukt(item.id)}><img  src="/paymentIcon/minus.png" ></img></button>
