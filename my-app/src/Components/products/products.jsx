@@ -18,10 +18,10 @@ const Products = ({ selectedCategory }) => {
     { id: 3, name: "Fried Fish", image: '/assets/meal_display_images/fried_fish.png', categoryId: 3, preis: 7.99 },
     { id: 4, name: "Caesar Salad", image: '/assets/meal_display_images/caesar_salad.png', categoryId: 4, preis: 4.99 },
     { id: 5, name: "French Fries", image: '/assets/meal_display_images/french_fries.png', categoryId: 5, preis: 2.99 },
-    { id: 6, name: "Ice Cream", image: '/assets/meal_display_images/icecream.png', categoryId: 6, preis: 3.99 },
-    { id: 7, name: "Milkshake", image: '/assets/meal_display_images/milkshake.png', categoryId: 7, preis: 5.49 },
-    { id: 8, name: "Ritter Sport Bigmac", image: '/assets/meal_display_images/ritter_bigmac.jpg', categoryId: 8, preis: 7.00 },
-    { id: 9, name: "Ritter Sport Döner", image: '/assets/meal_display_images/ritter-doener.jpg', categoryId: 8, preis: 7.00 },
+    { id: 6, name: "Ice Cream", image: '/assets/meal_display_images/icecream.png', categoryId: 5, preis: 3.99 },
+    { id: 7, name: "Milkshake", image: '/assets/meal_display_images/milkshake.png', categoryId: 5, preis: 5.49 },
+    { id: 8, name: "Ritter Sport Bigmac", image: '/assets/meal_display_images/ritter_bigmac.jpg', categoryId: 5, preis: 7.00 },
+    { id: 9, name: "Ritter Sport Döner", image: '/assets/meal_display_images/ritter-doener.jpg', categoryId: 5, preis: 7.00 },
   ];
 
   const filteredMeals = selectedCategory
@@ -153,7 +153,7 @@ const Products = ({ selectedCategory }) => {
           cardClass += " fadeIn";
         }
         return (
-          <div id={`productCardOrigin-${meal.id}`} key={meal.id} class = "productCardOrigin">
+          <div id={`productCardOrigin-${meal.id}`} key={meal.id} className = "productCardOrigin">
             <div
               ref={(el) => (cardRefs.current[meal.id] = el)}
               className={cardClass}

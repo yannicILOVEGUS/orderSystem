@@ -30,6 +30,7 @@
 /* Öffnen des Warenkorbs */
 .warenkorbContainer.open {
   transform: translateX(0);
+  z-index: 10;
 }
 
 /* Container für den Warenkorb */

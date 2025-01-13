@@ -12,6 +12,7 @@
     scrollbar-width: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     animation: flyIn 0.5s ease-in-out;
+    z-index: 0;
 }
 
 @keyframes flyIn {
