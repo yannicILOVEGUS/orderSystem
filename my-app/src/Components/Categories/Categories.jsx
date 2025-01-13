@@ -16,7 +16,7 @@ const Categories = ({ onCategorySelect }) => {
         <div
           key={category.id}
           className="productCard"
-          onClick={() => onCategorySelect(category.id)}
+          onClick={() => onCategorySelect(category.id, category.name)}
           style={{ cursor: "pointer" }}
         >
            <img src={category.image} alt={category.name} className="mealImage" />

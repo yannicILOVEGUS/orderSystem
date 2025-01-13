@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './OrderSummary.css';
 
-const OrderSummary = () => {
+const OrderSummary = ({ onResetCategory }) => {
   const location = useLocation();
   const { orderNumber, warenkorb, gesamtPreis } = location.state || {};
 
@@ -20,7 +20,7 @@ const OrderSummary = () => {
       </ul>
       <p className='totalPrice'>Total Price: <span className='highlight'>{(gesamtPreis).toFixed(2)} €</span></p>
       <Link to="/">
-        <button className='backButton'>Back to Homepage</button>
+        <button className='backButton' onClick={onResetCategory}>Back to Homepage</button>
       </Link>
     </div>
   );

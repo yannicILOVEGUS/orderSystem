@@ -36,9 +36,11 @@ const Cart = () => {
       )}
       </div>
       <div className="totalPrice">Total: {gesamtPreis.toFixed(2)}€</div>
-      <Link to="/checkout">
-      <button className="checkoutButton">Proceed to Checkout</button>
-      </Link>
+      {warenkorb.length > 0 && (
+        <Link to="/checkout">
+          <button className="checkoutButton">Proceed to Checkout</button>
+        </Link>
+      )}
     </div>
   );
 };

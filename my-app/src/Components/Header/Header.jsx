@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './Header.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const Header = ({ onResetCategory }) => {
+const Header = ({ onResetCategory, categoryName }) => {
   const location = useLocation();
   const hiddenPaths = ['/checkout', '/order-summary'];
   const shouldHideButton = hiddenPaths.includes(location.pathname);
@@ -17,6 +17,10 @@ const Header = ({ onResetCategory }) => {
             Back to Categories
           </button>
         )}
+      </div>
+      <div className='currentLocation'>
+        {/* Dynamischer Kategoriename */}
+        <h2>{categoryName}</h2>
       </div>
       <div className="logo-container">
         <img src="/assets/Logo.png" alt="logo" className="logo" />

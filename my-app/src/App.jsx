@@ -12,26 +12,35 @@ import Categories from './Components/Categories/Categories';
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const handleCategorySelect = (categoryId) => {
-    setSelectedCategory(categoryId); // Speichert die ausgewählte Kategorie
+  const handleCategorySelect = (categoryId, categoryName) => {
+    setSelectedCategory({
+      id: categoryId,
+      name: categoryName,
+    });
   };
 
   const resetCategory = () => {
     setSelectedCategory(null);
   };
+
   return (
     <Router>
       <CartProvider>
         <PaymentProvider>
           <div>
-          <Header onResetCategory={resetCategory} />
+            <Header
+              onResetCategory={resetCategory}
+              categoryName={selectedCategory ? selectedCategory.name : 'Category'} // Weitergabe des categoryName
+            />
             <Routes>
-              <Route path="/" element={
+              <Route
+                path="/"
+                element={
                   <>
                     {!selectedCategory && (
                       <>
-                      <Categories onCategorySelect={handleCategorySelect} />
-                      <Footer/>
+                        <Categories onCategorySelect={handleCategorySelect} />
+                        <Footer />
                       </>
                     )}
                     {selectedCategory && (
@@ -44,7 +53,7 @@ const App = () => {
                 }
               />
               <Route path="/checkout" element={<Checkout />} />
-              <Route path="/order-summary" element={<OrderSummary />} />
+              <Route path="/order-summary" element={<OrderSummary onResetCategory={resetCategory} />} />
             </Routes>
           </div>
         </PaymentProvider>

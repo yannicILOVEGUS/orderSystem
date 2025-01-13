@@ -28,7 +28,7 @@ const Products = ({ selectedCategory }) => {
   ];
 
   const filteredMeals = selectedCategory
-    ? meals.filter(meal => meal.categoryId === selectedCategory)
+    ? meals.filter(meal => meal.categoryId === selectedCategory.id)
     : meals;
 
   const handleCardClick = (id) => {
