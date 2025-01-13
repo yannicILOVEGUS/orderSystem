@@ -4,7 +4,6 @@ import '../styles/containers.css';
 import '../styles/buttons.css';
 import '../styles/cards.css';
 import { useCart } from '../Context/CartStoreContext';
-import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Products = ({ selectedCategory }) => {

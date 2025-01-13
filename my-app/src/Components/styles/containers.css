@@ -76,8 +76,8 @@
 @keyframes fadeIn {
     0% {
         transform: translate(0, 0) scale(1);
-        width: 30vw;
-        height: 40vw;   
+        width: 254.6px;
+        height: 339.71px;   
     }
     50% {
         transform: translate(var(--start-x), var(--start-y));
@@ -126,7 +126,7 @@
         transform: translate(var(0), var(0));
       
     }
-  }
+}
   
   .productCard.fadeOut {
     animation: fadeOut 0.5s ease-in-out forwards;
@@ -153,9 +153,9 @@
 @keyframes decreaseSize {
     0% {
         width: 100%;
-    }
+    }  
     100% {
-        width: 50%;
+        width: 15rem;
         filter: drop-shadow(0px 0px 40px #8f8f8f); 
 
     }
@@ -180,14 +180,16 @@
     }
     40% {
         transform: scale(0);
+        position:absolute;
         opacity: 0;
-        display: none;
+       
         
     }
     100% {
         transform: scale(0);
         opacity: 0;
         display: none;
+        position:absolute;
         
     }
   }
@@ -200,10 +202,22 @@
     text-align: center; 
 }
 
+@keyframes opacityIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
 
+        transform: scale(1);
+        
+    }
+  }
 
 .backBtn {
-    position: absolute;
+    position:absolute;
+    animation: opacityIn 0.5s ease-in-out;
     top: 1rem;
     left: 1rem;
     border: none;
