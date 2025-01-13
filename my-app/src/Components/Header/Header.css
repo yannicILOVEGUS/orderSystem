@@ -42,7 +42,7 @@
 }
 
 .reset-button:hover {
-    background-color: #d93628;
+    background-color: #92c150;
     color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

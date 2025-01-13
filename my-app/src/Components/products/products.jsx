@@ -58,8 +58,8 @@ const Products = ({ selectedCategory }) => {
 
       const cardCenterX = rect.left + rect.width / 3.3;
       const cardCenterY = rect.top + rect.height / 3;
-      const viewportCenterX = window.innerWidth / 3.4;
-      const viewportCenterY = window.innerHeight / 3;
+      const viewportCenterX = window.innerWidth / 3.95;
+      const viewportCenterY = window.innerHeight / 3.5;
 
       const offsetX = viewportCenterX - cardCenterX;
       const offsetY = viewportCenterY - cardCenterY;
@@ -172,10 +172,11 @@ const Products = ({ selectedCategory }) => {
                   <ArrowBackIcon />
                 </button>
               )}
-              <div>
-                <img src={meal.image} alt={meal.name} className="mealImage" />
-                <div className="mealName">{meal.name}</div>
-              </div>
+                <div>
+                  <div className="price-tag">${meal.preis.toFixed(2)}</div>
+                  <img src={meal.image} alt={meal.name} className="mealImage" />
+                  <div className="mealName">{meal.name}</div>
+                </div>
               {animatingId === meal.id && !isFadingOut && (
                 <div id="checklist" className="radioCard">
                   <h3 className="radioCardTitle">Choose a size</h3>

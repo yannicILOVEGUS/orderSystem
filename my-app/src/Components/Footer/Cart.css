@@ -1,4 +1,4 @@
-/* Hintergrunddunkelung Overlay */
+
 .overlay {
   position: fixed;
   top: 0;
@@ -12,7 +12,7 @@
   transition: opacity 0.2s ease;
 }
 
-/* Warenkorb Container */
+
 .warenkorbContainer {
   position: fixed;
   top: 0;
@@ -27,13 +27,11 @@
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Öffnen des Warenkorbs */
 .warenkorbContainer.open {
   transform: translateX(0);
   z-index: 10;
 }
 
-/* Container für den Warenkorb */
 .warenkorbContent {
   padding: 24px;
   color: rgba(0, 0, 0, 0.87);
@@ -44,7 +42,6 @@
   background-color: #ffffff;
 }
 
-/* Kopfzeile im Warenkorb */
 .warenkorbContent h2 {
   font-size: 1.5rem;
   font-weight: 500;
@@ -54,7 +51,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-/* Wenn der Warenkorb leer ist */
 .warenkorbItems p {
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.6);
@@ -151,7 +147,6 @@ a {
               0 1px 10px 0 rgba(0,0,0,0.12);
 }
 
-/* Warenkorb leeren Button */
 .clearCartButton {
   background-color: transparent;
   color: #f44336;

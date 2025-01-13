@@ -8,7 +8,6 @@ const Footer = () => {
   const itemCount = warenkorb.reduce((total, item) => total + item.menge, 0);
   const [showNewDiv, setShowNewDiv] = useState(false);
 
-  // Funktion zum Umschalten des States
   const toggleNewDiv = () => {
     setShowNewDiv(prevState => !prevState);
   };
@@ -22,7 +21,7 @@ const Footer = () => {
 
       {showNewDiv && <div className="overlay" onClick={toggleNewDiv}></div>}
 
-      {/* Wenn showNewDiv true ist, wird die neue Komponente angezeigt */}
+   
       <div className={`warenkorbContainer ${showNewDiv ? 'open' : ''}`}>
         <Cart />
       </div>
