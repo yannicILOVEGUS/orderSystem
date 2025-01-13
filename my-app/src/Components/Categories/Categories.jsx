@@ -3,14 +3,11 @@ import '../styles/containers.css';
 
 const Categories = ({ onCategorySelect }) => {
   const categoriesItems = [
-    { id: 1, name: "Burgers", icon: "🍔" },
-    { id: 2, name: "Chicken", icon: "🍗" },
-    { id: 3, name: "Fish", icon: "🐟" },
-    { id: 4, name: "Salads", icon: "🥗" },
-    { id: 5, name: "Fries", icon: "🍟" },
-    { id: 6, name: "Desserts", icon: "🍦" },
-    { id: 7, name: "Drinks", icon: "🥤" },
-    { id: 8, name: "Happy Meal", icon: "🎉" },
+    { id: 1, name: "Burgers", image:'/assets/CatecoryImg/Burger.png'},
+    { id: 2, name: "Chicken", image:'/assets/CatecoryImg/chicken.png'},
+    { id: 3, name: "Fish", image:'/assets/CatecoryImg/Lachs.png' },
+    { id: 4, name: "Salads", image:'/assets/CatecoryImg/salat-chicken.png' },
+    { id: 5, name: "Fries", image:'/assets/CatecoryImg/fries.png' },
   ];
 
   return (
@@ -22,7 +19,7 @@ const Categories = ({ onCategorySelect }) => {
           onClick={() => onCategorySelect(category.id)}
           style={{ cursor: "pointer" }}
         >
-          <div className="categoryIcon">{category.icon}</div>
+           <img src={category.image} alt={category.name} className="mealImage" />
           <div className="categoryName">{category.name}</div>
         </div>
       ))}
