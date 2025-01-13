@@ -1,38 +1,57 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+
 .logo-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-  width: 50px; 
-  height: auto;
-  margin-right: 10px;
+    height: 4rem;
+    width: auto;
+    border-radius: 8px;
 }
 
-.header-text {
-  font-size: 1.5rem;
-  font-weight: bold;
+.header-actions {
+    display: flex;
+    align-items: center;
 }
 
 .reset-button {
-  margin-left: auto; 
-  padding: 8px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+    background-color: #eeeeee;
+    border: none;
+    color: #444444;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .reset-button:hover {
-  background-color: #0056b3;
+    background-color: #d93628;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+    color: inherit; /* Matches the button's text color */
 }

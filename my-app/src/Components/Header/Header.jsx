@@ -1,16 +1,21 @@
 import React from 'react';
 import './Header.css';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Header = ({ onResetCategory }) => {
   return (
     <header className="header">
-      <div className="logo-container">
-        <img src="/assets/Logo.png" alt="logo" className="logo" />
-        <span className="header-text">Our Range of Products</span>
-      </div>
+
+      <div className="header-actions">
         <button className="reset-button" onClick={onResetCategory}>
+          <ArrowBackIcon className="arrow-icon" />
           Back to Categories
         </button>
+      </div>
+
+      <div className="logo-container">
+        <img src="/assets/Logo.jpg" alt="logo" className="logo" />
+      </div>
     </header>
   );
 };
