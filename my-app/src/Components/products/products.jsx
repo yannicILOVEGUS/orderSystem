@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import './products.css';
 import '../styles/containers.css';
+import '../styles/buttons.css';
+import '../styles/cards.css';
 import { useCart } from '../Context/CartStoreContext';
-import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const Products = ({ selectedCategory }) => {
@@ -14,6 +15,8 @@ const Products = ({ selectedCategory }) => {
 
   const meals = [
     { id: 1, name: "Cheeseburger", image: '/assets/meal_display_images/cheeseburger.png', categoryId: 1, preis: 5.99 },
+    { id: 11, name: "Burgercheeser", image: '/assets/meal_display_images/cheeseburger.png', categoryId: 1, preis: 5.99 },
+    { id: 12, name: "Burger Burger", image: '/assets/meal_display_images/cheeseburger.png', categoryId: 1, preis: 5.99 },
     { id: 2, name: "Grilled Chicken", image: '/assets/meal_display_images/grilled_chicken.png', categoryId: 2, preis: 6.99 },
     { id: 3, name: "Fried Fish", image: '/assets/meal_display_images/fried_fish.png', categoryId: 3, preis: 7.99 },
     { id: 4, name: "Caesar Salad", image: '/assets/meal_display_images/caesar_salad.png', categoryId: 4, preis: 4.99 },
@@ -29,8 +32,7 @@ const Products = ({ selectedCategory }) => {
     : meals;
 
   const handleCardClick = (id) => {
-    // Nur Animation starten, aber das Div nicht schließen
-    if (animatingId === id) return;  // Verhindern, dass ein weiteres CardClick die Animation überschreibt
+    if (animatingId === id) return; 
     
     const cardElement = cardRefs.current[id];
     if (cardElement) {
@@ -66,8 +68,8 @@ const Products = ({ selectedCategory }) => {
       cardElement.style.setProperty("--start-y", `${offsetY}px`);
     }
 
-    setAnimatingId(id);  // Starte die Animation
-    setIsFadingOut(false); // Keine Fade-Out Animation initialisieren
+    setAnimatingId(id);  
+    setIsFadingOut(false); 
   };
 
   const handleBackClick = () => {
@@ -163,8 +165,8 @@ const Products = ({ selectedCategory }) => {
                 <button
                   className="backBtn"
                   onClick={(e) => {
-                    e.stopPropagation();  // Verhindern, dass der Klick propagiert
-                    handleBackClick();   // Nur beim "Back"-Button schließen
+                    e.stopPropagation();  
+                    handleBackClick();   
                   }}
                 >
                   <ArrowBackIcon />
@@ -211,16 +213,15 @@ const Products = ({ selectedCategory }) => {
                   </div>
                 </div>
               )}
-
-              <Button
-                variant="outlined"
+              <button
+                className="add-to-cart-btn"
                 onClick={(e) => {
-                  e.stopPropagation(); 
-                  hinzufuegen(meal);  
+                  e.stopPropagation();
+                  hinzufuegen(meal);
                 }}
               >
-                Add to cart
-              </Button>
+                Add to Cart
+              </button>
             </div>
           </div>
         );

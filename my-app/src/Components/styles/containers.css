@@ -11,30 +11,25 @@
     overflow-x: hidden;
     scrollbar-width: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    animation: flyIn 0.5s ease-in-out;
-    z-index: 0;
+    animation: flyIn 0.4s ease-in-out;
+    min-width: 785px;
+    max-width: 850px;
+    justify-self: center;
 }
 
 @keyframes flyIn {
-0% {
-    opacity: 0.7;
-    transform: scale(0.8);
-}
-
-70% {
-    opacity: 1;
-    transform: scale(1.03);
-
-}
-
-100% {
-
-    opacity: 1;
-    transform: scale(1);
-
-}
-
-
+    0% {
+        opacity: 0.7;
+        transform: scale(0.95);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .homepageContainer::-webkit-scrollbar {
@@ -70,8 +65,7 @@
     animation: fadeIn 0.5s ease-in-out forwards;
     position: fixed; 
     z-index: 10;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     flex-direction: column;
     
     align-items: center;
@@ -82,19 +76,20 @@
 @keyframes fadeIn {
     0% {
         transform: translate(0, 0) scale(1);
-        width: 30vw;
-        height: 40vw;   
+        width: 254.6px;
+        height: 339.71px;   
     }
     50% {
         transform: translate(var(--start-x), var(--start-y));
     }
     100% {
         width: 60%;
-        height: 60%;
+        height: 70%;
         transform: translate(var(--start-x), var(--start-y));
         overflow: hidden;
         padding: 40px;
         cursor: default;
+        overflow: scroll;
         
     }
 }
@@ -106,7 +101,7 @@
         z-index: 10;
         width: 330vw;
         height: 330vh;
-       
+        overflow: hidden;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
@@ -131,7 +126,7 @@
         transform: translate(var(0), var(0));
       
     }
-  }
+}
   
   .productCard.fadeOut {
     animation: fadeOut 0.5s ease-in-out forwards;
@@ -148,6 +143,8 @@
 
 .mealImage.selected{
     animation: decreaseSize 0.5s ease-in-out forwards;
+
+
 }
 .mealImage.deselected{
     animation: increaseSize 0.5s ease-in-out forwards;
@@ -156,9 +153,9 @@
 @keyframes decreaseSize {
     0% {
         width: 100%;
-    }
+    }  
     100% {
-        width: 50%;
+        width: 15rem;
         filter: drop-shadow(0px 0px 40px #8f8f8f); 
 
     }
@@ -183,14 +180,16 @@
     }
     40% {
         transform: scale(0);
+        position:absolute;
         opacity: 0;
-        display: none;
+       
         
     }
     100% {
         transform: scale(0);
         opacity: 0;
         display: none;
+        position:absolute;
         
     }
   }
@@ -199,39 +198,26 @@
     font-weight: 500;
     font-size: 1.2rem;
     color: #444444;
-    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
     text-align: center; 
 }
 
-.addToCartBtn {
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: auto;
-    margin-bottom: 1rem;
-    transition: transform 0.5s ease;
-    align-self: center; 
-}
+@keyframes opacityIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
 
-.addToCartBtn:hover{
-    background-color: #d93628;
-    width: 90%;
-}
-.productCard.fadeIn .addToCartBtn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: auto;
-    margin-bottom: 1rem;
-
-}
+        transform: scale(1);
+        
+    }
+  }
 
 .backBtn {
-    position: absolute;
+    position:absolute;
+    animation: opacityIn 0.5s ease-in-out;
     top: 1rem;
     left: 1rem;
     border: none;
@@ -248,10 +234,10 @@
     animation: disappear 0.5s ease-in-out;
 }
 
-
 .productCardOrigin {
-    
-
-    height: 37.5vw;   
+    aspect-ratio: 3 / 4;
+    height: 37%;   
     scrollbar-width: none;
 }
+
+
