@@ -1,76 +1,56 @@
 .header {
     display: flex;
-    height: 100px;         
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding: 10px;
 }
 
-.logo-container img {
-    width: 100px;
-    height: auto;
+.logo {
+    height: 4rem;
+    width: auto;
+    border-radius: 8px;
 }
-  @media (min-width: 768px) {
-    .logo {
-      max-width: 300px; 
-    }
-  }
-  .category-container {
-    width: 100%;
-    height: 100px;
-    overflow-x: auto; 
+
+.header-actions {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 0 10px;  
-    overflow-y: hidden;
-    scrollbar-width: none;
-  }
-  .category-item {
-    margin: 10px;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-radius: 15px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.reset-button {
+    background-color: #eeeeee;
+    border: none;
+    color: #444444;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .category-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .icon {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .name {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  .category-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .category-container::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-  }
-  
-  .category-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 10px;
-  }
-  
-  .category-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: #d93628;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+    color: inherit; /* Matches the button's text color */
+}

@@ -161,7 +161,7 @@ const Products = ({selectedCategory}) => {
           cardClass += " fadeIn";
         }
         return (
-          <div id={`productCardOrigin-${meal.id}`} key={meal.id}>
+          <div id={`productCardOrigin-${meal.id}`} key={meal.id} class = "productCardOrigin">
             <div
               ref={(el) => (cardRefs.current[meal.id] = el)}
               className={cardClass}

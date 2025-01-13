@@ -11,6 +11,29 @@
     overflow-x: hidden;
     scrollbar-width: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    animation: flyIn 0.5s ease-in-out;
+}
+
+@keyframes flyIn {
+0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+}
+
+70% {
+    opacity: 1;
+    transform: scale(1.03);
+
+}
+
+100% {
+
+    opacity: 1;
+    transform: scale(1);
+
+}
+
+
 }
 
 .homepageContainer::-webkit-scrollbar {
@@ -46,8 +69,6 @@
     animation: fadeIn 0.5s ease-in-out forwards;
     position: fixed; 
     z-index: 10;
-    width: 330vw;
-    height: 330vh;
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
@@ -208,7 +229,6 @@
 
 }
 
-
 .backBtn {
     position: absolute;
     top: 1rem;
@@ -228,3 +248,9 @@
 }
 
 
+.productCardOrigin {
+    
+
+    height: 37.5vw;   
+    scrollbar-width: none;
+}
